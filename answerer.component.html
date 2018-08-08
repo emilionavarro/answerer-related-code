@@ -1,0 +1,75 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--waterfall cat-feeder-header">
+        <div class="mdl-layout__header-row portfolio-logo-row">
+            <span class="mdl-layout__title">
+                <div routerLink="/" class="portfolio-project-logo"></div>
+                <span class="mdl-layout__title">Question Answerer</span>
+            </span>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a class="mdl-navigation__link" routerLink="/">Home</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+
+        <div class="mdl-grid portfolio-max-width">
+
+            <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp grow">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__supporting-text no-left-padding">
+                        <h2>
+                            Ask away!
+                        </h2>
+                    </div>
+
+                    <form #newQuestion="ngForm" (ngSubmit)="ask()" autocomplete="off" novalidate>
+                        <div class="mdl-textfield__expandable-holder">
+                            <form #newQuestion="ngForm" (ngSubmit)="ask()" novalidate autocomplete="off">
+                                <mat-form-field appearance="outline" class="long">
+                                    <mat-label>Ask a question...</mat-label>
+                                    <input matInput [(ngModel)]="question" name="name" required id="name" type="text" class="form-control" placeholder="Press enter when you're ready!">
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mdl-grid portfolio-max-width" *ngIf="answerDetails">
+            <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp grow">
+                <div class="mdl-cell mdl-cell--12-col" style="padding-top: 2.5%; vertical-align: middle;">
+                    <div class="no-left-padding" style="text-align: center;">
+                        <h2>{{answerDetails.value}}</h2>
+
+                        <img *ngIf="answerDetails?.futurama" src="http://oyster.ignimgs.com/wordpress/stg.ign.com/2013/09/23-a-big-piece-of-garbage.jpg" />
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-grid portfolio-max-width" *ngIf="answer">
+            <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp grow">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <h4>Entities</h4>
+                    <label>
+                        <ul>
+                            <li *ngFor="let entity of answer?.entities">
+                                <span>Found {{entity.type}} ({{entity.entity}})</span>
+                            </li>
+                        </ul>
+                    </label>
+
+                    <h4>Question Type</h4>
+                    <label>{{answer?.topScoringIntent?.intent}}</label>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</div>

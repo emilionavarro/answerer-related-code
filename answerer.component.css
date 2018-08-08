@@ -1,0 +1,29 @@
+.cat-feeder-background-image {
+    background: url('../../assets/atlas-white.png') bottom right;
+    background-size: cover;
+}
+
+.overlay {
+    background: url('../../assets/black-twill.png') bottom right 15% repeat;
+}
+
+.grow {
+    overflow: auto;
+}
+
+.cat-feeder-header {
+    position: relative;
+    background: url(../../assets/graphy.png) bottom right 15% repeat #FFC107;
+}
+  
+.cat-feeder-header .mdl-layout__header-row {
+    padding: 0;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.cat-feeder-header .mdl-layout__drawer-button {
+    background-color: rgba(197, 197, 197, 0.44);
+}
+
